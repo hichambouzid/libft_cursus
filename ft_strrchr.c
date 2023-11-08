@@ -14,7 +14,7 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	if (s && (unsigned char)c == 0)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hibouzid <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hibouzid <hibouzid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 15:16:07 by hibouzid          #+#    #+#             */
-/*   Updated: 2023/11/08 11:37:59 by hibouzid         ###   ########.fr       */
+/*   Updated: 2023/11/08 21:43:19 by hibouzid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,12 @@ int	ft_check(unsigned char *dst, unsigned char *src, size_t len)
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	// size_t			i;
 	int				f;
 	unsigned char	*dest;
 	unsigned char	*srcs;
 
 	dest = (unsigned char *)dst;
 	srcs = (unsigned char *)src;
-	// i = 0;
 	if (!dst && !src)
 		return (0);
 	if (ft_check(dest, srcs, len) == 0)
