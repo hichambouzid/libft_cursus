@@ -6,7 +6,7 @@
 /*   By: hibouzid <hibouzid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 14:36:45 by hibouzid          #+#    #+#             */
-/*   Updated: 2023/11/09 18:30:42 by hibouzid         ###   ########.fr       */
+/*   Updated: 2023/11/09 18:42:01 by hibouzid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,8 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	t_list	*save;
-
-	if (!*lst)
-	{
-		*lst = new;
+	if (!lst || !new)
 		return ;
-	}
-	save = *lst;
-	while ((*lst)->next)
-		*lst = (*lst)->next;
-	(*lst)->next = new;
-	*lst = save;
+	new->next = *lst;
+	*lst = new;
 }
