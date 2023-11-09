@@ -1,44 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hibouzid <hibouzid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 23:50:25 by hibouzid          #+#    #+#             */
-/*   Updated: 2023/11/09 09:57:55 by hibouzid         ###   ########.fr       */
+/*   Created: 2023/11/09 11:04:17 by hibouzid          #+#    #+#             */
+/*   Updated: 2023/11/09 14:30:39 by hibouzid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(long number, int fd)
+t_list	*ft_lstnew(void *content)
 {
-	if (number < 0)
-	{
-		ft_putchar_fd('-', fd);
-		ft_putnbr(number * -1, fd);
-	}
-	else if (number < 10)
-		ft_putchar_fd(number + 48, fd);
-	else
-	{
-		ft_putnbr(number / 10, fd);
-		ft_putnbr(number % 10, fd);
-	}
+	t_list	*new_node;
+
+	new_node = malloc(sizeof(t_list));
+	if (!new_node)
+		return (0);
+	new_node->content = content;
+	new_node->next = 0;
+	return (new_node);
 }
 
-void	ft_putnbr_fd(int n, int fd)
-{
-	long	number;
-
-	number = (long)n;
-	ft_putnbr(number, fd);
-}
-
-// #include <stdio.h>
+// #include<stdio.h>
 
 // int main()
 // {
-// 	ft_putnbr_fd(1555, 1);
+// 	int nb  = 42;
+// 	t_list *ptr;
+
+// 	ptr = ft_lstnew((void *)&nb);
+// 	printf("--> %d\n", *((int *)ptr->content));
 // }
