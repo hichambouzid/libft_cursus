@@ -6,7 +6,7 @@
 /*   By: hibouzid <hibouzid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 12:05:34 by hibouzid          #+#    #+#             */
-/*   Updated: 2023/11/08 22:04:24 by hibouzid         ###   ########.fr       */
+/*   Updated: 2023/11/12 12:36:36 by hibouzid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ char	**ft_alloc(char **ptr, const char *s, char c, int e)
 			break ;
 		while (!is_separator(s[f], c) && s[f])
 			f++;
-		ptr[j] = malloc(sizeof(char) * (2 + f - i));
+		ptr[j] = malloc(sizeof(char) * (1 + f - i));
 		f = 0;
 		while (s[i] && !is_separator(s[i], c))
 			ptr[j][f++] = s[i++];

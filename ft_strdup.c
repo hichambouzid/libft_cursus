@@ -6,7 +6,7 @@
 /*   By: hibouzid <hibouzid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 12:12:12 by hibouzid          #+#    #+#             */
-/*   Updated: 2023/11/04 13:05:24 by hibouzid         ###   ########.fr       */
+/*   Updated: 2023/11/12 12:44:41 by hibouzid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,13 @@ char	*ft_strdup(const char *s1)
 	int		i;
 	char	*str;
 
-	if (!*s1)
-	{
-		str = malloc(sizeof(char));
-		*str = 0;
-		return (str);
-	}
+	i = 0;
+	// if (!s1)
+	// {
+	// 	str = malloc(sizeof(char));
+	// 	*str = 0;
+	// 	return (str);
+	// }
 	i = ft_strlen(s1);
 	str = malloc(sizeof(char) * (i + 1));
 	if (!str)
