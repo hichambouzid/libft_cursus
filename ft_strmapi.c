@@ -6,7 +6,7 @@
 /*   By: hibouzid <hibouzid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:37:04 by hibouzid          #+#    #+#             */
-/*   Updated: 2023/11/08 22:33:18 by hibouzid         ###   ########.fr       */
+/*   Updated: 2023/11/12 21:24:58 by hibouzid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	unsigned int	len;
 	char			*str;
 
+	if (!s || !f)
+		return (NULL);
 	len = ft_strlen(s);
 	str = malloc(sizeof(char) * (len + 1));
 	if (!str)

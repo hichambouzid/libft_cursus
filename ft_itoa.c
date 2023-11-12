@@ -6,14 +6,13 @@
 /*   By: hibouzid <hibouzid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 14:23:47 by hibouzid          #+#    #+#             */
-/*   Updated: 2023/11/08 22:00:30 by hibouzid         ###   ########.fr       */
+/*   Updated: 2023/11/12 21:10:00 by hibouzid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int	ft_devis(long number)
+static int	ft_devis(long number)
 {
 	int	count;
 
@@ -28,7 +27,7 @@ int	ft_devis(long number)
 	return (count + 1);
 }
 
-char	*ft_complet(long number, int count, char *b)
+static char	*ft_complet(long number, int count, char *b)
 {
 	while (number >= 10 && count)
 	{

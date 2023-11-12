@@ -6,13 +6,13 @@
 /*   By: hibouzid <hibouzid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 23:50:25 by hibouzid          #+#    #+#             */
-/*   Updated: 2023/11/09 09:57:55 by hibouzid         ###   ########.fr       */
+/*   Updated: 2023/11/12 21:13:56 by hibouzid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(long number, int fd)
+static void	ft_putnbr(long number, int fd)
 {
 	if (number < 0)
 	{

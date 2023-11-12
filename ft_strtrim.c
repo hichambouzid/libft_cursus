@@ -6,14 +6,14 @@
 /*   By: hibouzid <hibouzid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:59:25 by hibouzid          #+#    #+#             */
-/*   Updated: 2023/11/08 21:33:57 by hibouzid         ###   ########.fr       */
+/*   Updated: 2023/11/12 21:25:53 by hibouzid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-int	ft_checkk(char *set, char c)
+static int	ft_check(char *set, char c)
 {
 	int	i;
 
@@ -40,10 +40,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	if (!*s1)
 		return (ft_strdup(""));
-	while (ft_checkk((char *)set, s1[start]) == 1)
+	while (ft_check((char *)set, s1[start]) == 1)
 		start++;
 	end = ft_strlen(s1) - 1;
-	while (ft_checkk((char *)set, s1[end]) == 1 && end >= 0 && end != start)
+	while (ft_check((char *)set, s1[end]) == 1 && end >= 0 && end != start)
 		end--;
 	if (end < start)
 		return (ft_strdup(""));

@@ -6,13 +6,13 @@
 /*   By: hibouzid <hibouzid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 15:16:07 by hibouzid          #+#    #+#             */
-/*   Updated: 2023/11/08 21:43:19 by hibouzid         ###   ########.fr       */
+/*   Updated: 2023/11/12 21:12:09 by hibouzid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_check(unsigned char *dst, unsigned char *src, size_t len)
+static int	ft_check(unsigned char *dst, unsigned char *src, size_t len)
 {
 	size_t	i;
 

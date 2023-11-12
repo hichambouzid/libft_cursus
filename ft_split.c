@@ -6,19 +6,19 @@
 /*   By: hibouzid <hibouzid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 12:05:34 by hibouzid          #+#    #+#             */
-/*   Updated: 2023/11/12 12:36:36 by hibouzid         ###   ########.fr       */
+/*   Updated: 2023/11/12 21:17:55 by hibouzid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-int	is_separator(char s, char c)
+static int	is_separator(char s, char c)
 {
 	return ((c == s));
 }
 
-int	ft_count(char const *s, char c)
+static int	ft_count(char const *s, char c)
 {
 	int	count;
 	int	i;
@@ -39,7 +39,18 @@ int	ft_count(char const *s, char c)
 	return (count);
 }
 
-char	**ft_alloc(char **ptr, const char *s, char c, int e)
+static char	**ft_free(int index, char **ptr)
+{
+	while (index >= 0)
+	{
+		free(ptr[index]);
+		index--;
+	}
+	free(ptr);
+	return (0);
+}
+
+static char	**ft_alloc(char **ptr, const char *s, char c, int e)
 {
 	int	i;
 	int	j;
@@ -47,7 +58,7 @@ char	**ft_alloc(char **ptr, const char *s, char c, int e)
 
 	i = 0;
 	j = 0;
-	while (s[i])
+	while (s[i] && j != e)
 	{
 		while (is_separator(s[i], c) && s[i])
 			i++;
@@ -57,13 +68,13 @@ char	**ft_alloc(char **ptr, const char *s, char c, int e)
 		while (!is_separator(s[f], c) && s[f])
 			f++;
 		ptr[j] = malloc(sizeof(char) * (1 + f - i));
+		if (!ptr[j])
+			return (ft_free(j - 1, ptr));
 		f = 0;
 		while (s[i] && !is_separator(s[i], c))
 			ptr[j][f++] = s[i++];
 		ptr[j][f] = 0;
 		j++;
-		if (j == e)
-			break ;
 	}
 	return (ptr);
 }
@@ -71,26 +82,20 @@ char	**ft_alloc(char **ptr, const char *s, char c, int e)
 char	**ft_split(char const *s, char c)
 {
 	char	**ptr;
+	int		count;
 
 	if (!s || !*s)
 	{
 		ptr = malloc(sizeof(char *));
+		if (!ptr)
+			return (NULL);
 		ptr[0] = 0;
 		return (ptr);
 	}
-	ptr = malloc(sizeof(char *) * (ft_count(s, c) + 1));
+	count = ft_count(s, c);
+	ptr = malloc(sizeof(char *) * (count + 1));
 	if (!ptr)
 		return (NULL);
-	ptr[ft_count(s, c)] = 0;
-	return (ft_alloc(ptr, s, c, ft_count(s, c)));
+	ptr[count] = 0;
+	return (ft_alloc(ptr, s, c, count));
 }
-
-// int main()
-// {
-// 	char **ptr;
-
-// 	ptr = ft_split("", ' ');
-// 	int i = 0;
-// 	for (;ptr[i]; i++)
-// 		printf("number is %d and the string  : %s\n", i, ptr[i]);
-// }
